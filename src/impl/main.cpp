@@ -1,7 +1,7 @@
-#include <iostream>
+import tmp;
 
 int
 main(int argc, char **argv)
 {
-    std::cout << "started\n";
+    Test();
 }
