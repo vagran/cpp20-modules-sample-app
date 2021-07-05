@@ -1,13 +1,10 @@
-module;
-
-#include <iostream>
-
 module tmp;
 
-//import std.io;
+import std.io;
+
 
 void
 Test()
 {
-    std::cout << "test\n";
+    std::cout << "test " << Internal() << " " << Internal2() << "\n";
 }
