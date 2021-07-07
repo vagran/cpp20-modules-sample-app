@@ -56,7 +56,6 @@
 			<target name="Generate makefiles: Debug" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>env</buildCommand>
 				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ cmake -DCMAKE_BUILD_TYPE=Debug ../src</buildArguments>
-				<buildTarget/>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>
 				<runAllBuilders>true</runAllBuilders>
@@ -64,7 +63,6 @@
 			<target name="Generate makefiles: Release" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>env</buildCommand>
 				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ cmake -DCMAKE_BUILD_TYPE=Release ../src</buildArguments>
-				<buildTarget/>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>
 				<runAllBuilders>true</runAllBuilders>
@@ -79,7 +77,6 @@
 			</target>
 			<target name="clean" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>make</buildCommand>
-				<buildArguments/>
 				<buildTarget>clean</buildTarget>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>
@@ -88,6 +85,13 @@
 			<target name="Generate makefiles: Cross Release" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>env</buildCommand>
 				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ CFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot" CXXFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot -stdlib=libc++" LDFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot -fuse-ld=lld --rtlib=compiler-rt -L ${ProjDirPath}/../lib -lunwind" cmake -DCMAKE_BUILD_TYPE=Release ../src</buildArguments>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="tmp_build" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>/home/artyom/projects/water-valve/source/src/tmp_build.sh</buildCommand>
+				<buildArguments/>
 				<buildTarget/>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>

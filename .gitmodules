@@ -1,0 +1,3 @@
+[submodule "src/modules/adk"]
+	path = src/modules/adk
+	url = git@github.com-personal:vagran/adk-cpp.git
