@@ -4,6 +4,7 @@ import std.core;
 import tmp;
 import adk.common;
 import adk.common.MessageComposer;
+import adk.common.exceptions;
 
 #include <adk/log.h>
 
@@ -30,6 +31,54 @@ public:
     {}
 };
 
+class MyPayload {
+public:
+    MyPayload(const std::string_view &s):
+        s(s)
+    {}
+
+    MyPayload(const MyPayload &o):
+        s(o.s)
+    {
+        LOG << "copied";
+    }
+
+    MyPayload(MyPayload &&o):
+        s(std::move(o.s))
+    {
+        LOG << "moved";
+    }
+
+    std::string s;
+};
+
+class MyException: public adk::Exception {
+public:
+    using TParamsTuple = std::tuple<MyPayload>;
+
+    MyException(const std::string_view &msg, MyPayload &&payload):
+        adk::Exception(std::string(msg) + std::string(" ") + payload.s),
+        payload(std::move(payload))
+    {}
+
+    MyPayload payload;
+};
+
+void
+TestThrow()
+{
+    try {
+        try {
+    //        adk::TODO("some feature wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
+            adk::Throw<MyException>().Params(MyPayload("pld")) << "some message";
+        } catch (adk::Exception &e) {
+            e.AddSuppressed(adk::InvalidOpException("bad op"));
+            adk::Throw<adk::InternalErrorException>().Nested() << "this is nested";
+        }
+    } catch (...) {
+        LOG << std::current_exception();
+    }
+}
 
 export int
 main(int argc, char **argv)
@@ -49,6 +98,10 @@ main(int argc, char **argv)
 
     LOG.Warning() << "Test warning " << 43;
 
+    TestThrow();
+
     adk::Log::Shutdown();
     LOG << "after shutdown";
+
+    return 0;
 }
