@@ -3,7 +3,7 @@
 set -ev
 
 CXX="/opt/clang-12/bin/clang++"
-CXX_FLAGS="-std=c++20 -fmodules -fimplicit-modules -stdlib=libc++ -Wall -Werror -g -O0"
+CXX_FLAGS="-std=c++20 -fmodules -fimplicit-modules -fmodules-cache-path=modules-cache -stdlib=libc++ -Wall -Werror -g -O0 -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread"
 CXXM_FLAGS="$CXX_FLAGS --precompile -x c++-module"
 
 ADK_DIR="../src/modules/adk/src"
@@ -55,13 +55,18 @@ $CXX -c $CXX_FLAGS \
     -fmodule-file=tmp.pcm \
     ../src/valve_controller/tmp/tmp_impl2.cpp -o tmp_impl2.o
     
+$CXX -c $CXXM_FLAGS ../src/modules/asio/asio.cppm -I../src/modules/asio/asio/asio/include \
+    -fmodule-map-file=../src/modules/asio/asio.modulemap \
+     -o asio.pcm \
+    -Xclang -emit-module-interface
+    
 $CXX -c $CXX_FLAGS \
-    -fmodule-file=tmp.pcm \
+    -fmodule-file=tmp.pcm -fmodule-file=asio.pcm -fmodule-map-file=../src/modules/asio/asio.modulemap \
     -I$ADK_DIR/adk/log/include -fmodule-file=adk.log.pcm -fmodule-file=adk.common.MessageComposer.pcm \
     -fmodule-file=adk.common.exceptions.pcm \
     ../src/valve_controller/main.cpp -o main.o
 
 $CXX $CXX_FLAGS \
     tmp.pcm tmp_impl.o tmp_impl2.o adk.log.pcm main.o adk.common.pcm adk.common.string_utils.pcm \
-    adk.common.string_utils.o adk.common.exceptions.pcm adk.common.exceptions.o \
+    adk.common.string_utils.o adk.common.exceptions.pcm adk.common.exceptions.o std.core.pcm std.io.pcm asio.pcm \
     -o valve_controller

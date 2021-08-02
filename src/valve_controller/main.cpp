@@ -1,3 +1,7 @@
+module;
+
+#include <signal.h>
+
 export module main;
 
 import std.core;
@@ -5,6 +9,7 @@ import tmp;
 import adk.common;
 import adk.common.MessageComposer;
 import adk.common.exceptions;
+import asio;
 
 #include <adk/log.h>
 
@@ -80,6 +85,59 @@ TestThrow()
     }
 }
 
+asio::awaitable<void>
+MainTask()
+{
+    LOG << "In main task";
+//    adk::TODO("aaa");
+    co_return;
+}
+
+void
+SubscribeSignals(asio::signal_set &signals, asio::io_context &mainCtx)
+{
+    signals.async_wait([&](asio::error_code ec, int sig) {
+        if (ec) {
+            LOG.Error() << "Signal error: " << ec.message();
+        } else {
+            LOG.Info() << "Signal received: " << sig;
+        }
+        if (sig == SIGUSR1) {
+            /* SIGUSR1 can be used here for some diagnostics dumps. */
+            SubscribeSignals(signals, mainCtx);
+            return;
+        }
+        LOG.Info() << "Exiting on signal " << sig;
+        //XXX stop application instance
+        mainCtx.stop();
+    });
+}
+
+int
+RunMain()
+{
+    asio::io_context mainCtx;
+    int exitCode = 0;
+
+    asio::signal_set signals(mainCtx, SIGINT, SIGTERM, SIGUSR1);
+    SubscribeSignals(signals, mainCtx);
+
+    asio::co_spawn(mainCtx, MainTask(),
+        [&](std::exception_ptr error) {
+
+        if (error) {
+            LOG.Error() << error;
+        }
+        LOG << "stopping";//XXX
+        mainCtx.stop();
+    });
+
+    LOG << "run";//XXX
+    mainCtx.run();
+
+    return exitCode;
+}
+
 export int
 main(int argc, char **argv)
 {
@@ -98,10 +156,12 @@ main(int argc, char **argv)
 
     LOG.Warning() << "Test warning " << 43;
 
-    TestThrow();
+//    TestThrow();
+
+    int exitCode = RunMain();
 
     adk::Log::Shutdown();
     LOG << "after shutdown";
 
-    return 0;
+    return exitCode;
 }

@@ -1,0 +1,4 @@
+module asio_impl {
+    header "asio/asio/include/asio.hpp"
+    export *
+}
