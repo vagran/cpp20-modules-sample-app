@@ -1,0 +1,4 @@
+greeting {
+    who = "Charlie"
+    AddModule("rrrrr")
+}
