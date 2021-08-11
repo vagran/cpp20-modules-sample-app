@@ -1,0 +1,6 @@
+module {
+    name = "asio"
+    exclude("asio")
+    include("asio/asio/include")
+    define("ASIO_STANDALONE", "ASIO_NO_DEPRECATED")
+}
