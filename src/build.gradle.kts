@@ -11,7 +11,7 @@ adk {
     include("aaa", "/bbb", "ccc/ddd")
     println(include)
 //    modules("valve_controller", "modules/adk/src/adk", "modules/asio")
-    modules("modules/adk/src/adk")
+    modules("valve_controller", "modules/adk/src/adk")
     println(modules)
 }
 
