@@ -1,3 +1,5 @@
 module {
     main()
+    depends("tmp", "asio", "adk.log", "adk.common", "adk.common.MessageComposer",
+            "adk.common.exceptions")
 }
