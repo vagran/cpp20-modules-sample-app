@@ -3,4 +3,5 @@ module {
     exclude("asio")
     include("asio/asio/include")
     define("ASIO_STANDALONE", "ASIO_NO_DEPRECATED")
+    moduleMap("asio.modulemap")
 }

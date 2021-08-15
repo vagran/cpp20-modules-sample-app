@@ -4,14 +4,7 @@ plugins {
 
 adk {
     buildType = "debug"
-    define("S1", "S2")
-    println(define)
-    define("S3", "S4")
-    println(define)
-    include("aaa", "/bbb", "ccc/ddd")
-    println(include)
     modules("valve_controller", "modules/adk/src/adk", "modules/asio")
-    println(modules)
+    cflags("-pthread")
+    linkflags("-pthread")
 }
-
-println(adk.binName)
