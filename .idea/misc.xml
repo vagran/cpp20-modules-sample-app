@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" />
     <file type="web" url="file://$PROJECT_DIR$/src" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="15" project-jdk-type="JavaSDK">

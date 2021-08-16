@@ -7,4 +7,5 @@ adk {
     modules("valve_controller", "modules/adk/src/adk", "modules/asio")
     cflags("-pthread")
     linkflags("-pthread")
+    cppModuleIfaceExt = listOf("cppm")
 }

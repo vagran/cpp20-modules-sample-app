@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.6" />
+    <bytecodeTargetLevel target="1.6">
+      <module name="adk-plugin" target="15" />
+      <module name="adk-plugin.main" target="15" />
+      <module name="adk-plugin.test" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>

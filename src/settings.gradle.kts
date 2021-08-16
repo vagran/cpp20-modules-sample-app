@@ -1,2 +1,5 @@
 rootProject.name = "water_valve"
-includeBuild("modules/adk/src/gradle-plugin")
+// Take directly for development purposes
+if (extra.has("adkGradlePluginPath")) {
+    includeBuild(extra["adkGradlePluginPath"]!!)
+}
