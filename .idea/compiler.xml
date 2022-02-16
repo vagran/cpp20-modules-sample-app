@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.6">
-      <module name="adk-plugin" target="15" />
-      <module name="adk-plugin.main" target="15" />
-      <module name="adk-plugin.test" target="15" />
+      <module name="io.github.vagran.adk-plugin" target="15" />
+      <module name="io.github.vagran.adk-plugin.main" target="15" />
+      <module name="io.github.vagran.adk-plugin.test" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>

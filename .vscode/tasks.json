@@ -1,0 +1,38 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "./gradlew build",
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "./gradlew clean",
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate compile DB",
+            "type": "shell",
+            "command": "./gradlew generateCompileDb",
+            "options": {
+                "cwd": "${workspaceFolder}/src"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

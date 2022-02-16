@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CompDBSettings">
+    <option name="linkedExternalProjectsSettings">
+      <CompDBProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/src/build/debug" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/src/build/debug" />
+          </set>
+        </option>
+      </CompDBProjectSettings>
+    </option>
+  </component>
+  <component name="CompDBWorkspace" PROJECT_DIR="$PROJECT_DIR$/src/build/debug">
+    <contentRoot DIR="$PROJECT_DIR$/src" />
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" />
     <file type="web" url="file://$PROJECT_DIR$/src" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="15" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="15" project-jdk-type="JavaSDK" />
   <component name="SuppressKotlinCodeStyleNotification">
     <option name="disableForAll" value="true" />
   </component>

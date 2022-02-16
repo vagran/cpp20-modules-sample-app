@@ -48,54 +48,6 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope"/>
-	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
-		<buildTargets>
-			<target name="Generate makefiles: Debug" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>env</buildCommand>
-				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ cmake -DCMAKE_BUILD_TYPE=Debug ../src</buildArguments>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="Generate makefiles: Release" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>env</buildCommand>
-				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ cmake -DCMAKE_BUILD_TYPE=Release ../src</buildArguments>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="all" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildArguments>-j 15</buildArguments>
-				<buildTarget>all</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="clean" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>make</buildCommand>
-				<buildTarget>clean</buildTarget>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="Generate makefiles: Cross Release" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>env</buildCommand>
-				<buildArguments>CC=/opt/clang-12/bin/clang CXX=/opt/clang-12/bin/clang++ CFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot" CXXFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot -stdlib=libc++" LDFLAGS="-target aarch64-linux-gnu --sysroot ${ProjDirPath}/../sysroot -fuse-ld=lld --rtlib=compiler-rt -L ${ProjDirPath}/../lib -lunwind" cmake -DCMAKE_BUILD_TYPE=Release ../src</buildArguments>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-			<target name="tmp_build" path="build" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
-				<buildCommand>/home/artyom/projects/water-valve/source/src/tmp_build.sh</buildCommand>
-				<buildArguments/>
-				<buildTarget/>
-				<stopOnError>true</stopOnError>
-				<useDefaultCommand>false</useDefaultCommand>
-				<runAllBuilders>true</runAllBuilders>
-			</target>
-		</buildTargets>
-	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.1176693547;cdt.managedbuild.toolchain.gnu.base.1176693547.1998610106;cdt.managedbuild.tool.gnu.c.compiler.base.190381500;cdt.managedbuild.tool.gnu.c.compiler.input.255072336">
@@ -104,5 +56,25 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.1176693547;cdt.managedbuild.toolchain.gnu.base.1176693547.1998610106;cdt.managedbuild.tool.gnu.cpp.compiler.base.1396350186;cdt.managedbuild.tool.gnu.cpp.compiler.input.1934037653">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+		<buildTargets>
+			<target name="build" path="src" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${workspace_loc:/water-valve/src/gradlew}</buildCommand>
+				<buildArguments/>
+				<buildTarget>build</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="clean" path="src" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>${workspace_loc:/water-valve/src/gradlew}</buildCommand>
+				<buildArguments/>
+				<buildTarget>clean</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+		</buildTargets>
 	</storageModule>
 </cproject>
