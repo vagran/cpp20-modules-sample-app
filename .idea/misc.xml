@@ -20,7 +20,7 @@
     <file type="web" url="file://$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" />
     <file type="web" url="file://$PROJECT_DIR$/src" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="15" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="15" project-jdk-type="JavaSDK" />
   <component name="SuppressKotlinCodeStyleNotification">
     <option name="disableForAll" value="true" />
   </component>
