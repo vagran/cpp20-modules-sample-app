@@ -4,23 +4,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT">
-            <builds>
-              <build path="$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" name="adk-plugin">
-                <projects>
-                  <project path="$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" />
-                </projects>
-              </build>
-            </builds>
-          </compositeBuild>
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/src" />
         <option name="gradleJvm" value="Corretto 15" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../adk/source/adk-cpp-gradle-plugin" />
             <option value="$PROJECT_DIR$/src" />
           </set>
         </option>
