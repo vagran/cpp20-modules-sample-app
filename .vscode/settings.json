@@ -1,5 +1,4 @@
 {
-    "C_Cpp.codeAnalysis.clangTidy.path": "/opt/clang-12/bin/clang-tidy",
     "files.associations": {
         "*.cppm": "cpp",
         "future": "cpp",
@@ -8,8 +7,7 @@
         "string": "cpp",
         "*.ipp": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled",
-    "clangd.path": "/opt/clang-12/bin/clangd",
+    "clangd.path": "/opt/clang-13/bin/clangd",
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/src/build/debug",
         "--clang-tidy",
