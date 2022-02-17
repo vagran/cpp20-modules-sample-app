@@ -6,7 +6,7 @@ work with C++20 modules. There are various problems with major IDEs in different
 several ones are reported. The most close is VSCode with clangd but clangd currently crashes when
 trying to index the files.
 
-Before building create `gradle.properties` file with the following content:
+Before building create `gradle.properties` file in `src` directory with the following content:
 ```
 adkCxx=/path/to/bin/clang++
 ```
