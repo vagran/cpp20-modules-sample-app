@@ -1,6 +1,6 @@
 module;
 
-#include <signal.h>
+#include <csignal>
 
 export module main;
 

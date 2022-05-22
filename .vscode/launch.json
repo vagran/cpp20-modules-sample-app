@@ -8,13 +8,17 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.out",
+            "program": "${workspaceFolder}/src/build/debug/sample_app",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
-            "environment": [],
+            "environment": [{
+                "name": "LD_LIBRARY_PATH",
+                "value": "/opt/clang-14/lib/x86_64-unknown-linux-gnu"
+            }],
             "externalConsole": false,
             "MIMode": "gdb",
+            "miDebuggerPath": "/opt/gdb-11.2/bin/gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

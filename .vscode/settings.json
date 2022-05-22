@@ -7,21 +7,11 @@
         "string": "cpp",
         "*.ipp": "cpp"
     },
-    
-    "clangd.path": "/opt/clang-13/bin/clangd",
+
+    "clangd.path": "/opt/clang-14/bin/clangd",
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/src/build/debug",
         "--clang-tidy",
         "--log=verbose"
-    ],
-
-    "clang-tidy.buildPath": "src/build/debug",
-    "clang-tidy.executable": "/opt/clang-13/bin/clang-tidy",
-    "clang-tidy.checks": [
-        "bugprone-*", "clang-analyzer-*", "concurrency-*", "cppcoreguidelines-*", "misc-*", 
-        "modernize-*", "performance-*", "portability-*", "readability-*",
-        "-modernize-use-trailing-return-type", "-misc-no-recursion", 
-        "-bugprone-implicit-widening-of-multiplication-result",
-        "-misc-non-private-member-variables-in-classes",
-        "-cppcoreguidelines-non-private-member-variables-in-classes"]
+    ]
 }
