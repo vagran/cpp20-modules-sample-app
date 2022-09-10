@@ -8,7 +8,10 @@
             "type": "shell",
             "command": "./gradlew build",
             "options": {
-                "cwd": "${workspaceFolder}/src"
+                "cwd": "${workspaceFolder}/src",
+                "env": {
+                    "JAVA_HOME": "/opt/jdk-17-corretto"
+                }
             },
             "problemMatcher": [],
             "group": {
@@ -21,7 +24,10 @@
             "type": "shell",
             "command": "./gradlew clean",
             "options": {
-                "cwd": "${workspaceFolder}/src"
+                "cwd": "${workspaceFolder}/src",
+                "env": {
+                    "JAVA_HOME": "/opt/jdk-17-corretto"
+                }
             },
             "problemMatcher": []
         },
@@ -30,7 +36,10 @@
             "type": "shell",
             "command": "./gradlew generateCompileDb",
             "options": {
-                "cwd": "${workspaceFolder}/src"
+                "cwd": "${workspaceFolder}/src",
+                "env": {
+                    "JAVA_HOME": "/opt/jdk-17-corretto"
+                }
             },
             "problemMatcher": []
         }
